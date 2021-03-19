@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: client
+
+server:
+  port: 18080
+eureka:
+  instance:
+    hostname: client
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://root:root@peer1:8761/eureka/,http://root:root@peer2:8762/eureka/,http://root:root@peer3:8763/eureka/
